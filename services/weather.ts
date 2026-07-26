@@ -5,16 +5,9 @@ import { OpenWeatherResponse, WeatherData } from "@/types/weather";
 const API_KEY = process.env.OPENWEATHER_API_KEY;
 const BASE_URL = "https://api.openweathermap.org/data/2.5/weather";
 
-export class WeatherError extends Error {
-  constructor(public message: string, public status?: number) {
-    super(message);
-    this.name = "WeatherError";
-  }
-}
-
 export async function getWeatherByCity(city: string): Promise<WeatherData> {
   if (!API_KEY) {
-    throw new WeatherError("API key is not configured.", 500);
+    throw new Error("API key is not configured.");
   }
 
   try {
@@ -51,11 +44,7 @@ export async function getWeatherByCity(city: string): Promise<WeatherData> {
       sunrise: data.sys.sunrise,
       sunset: data.sys.sunset,
     };
-  } catch (error) {
-    if (error instanceof WeatherError) {
-      throw error;
-    }
-    // Handle network errors (e.g., fetch failed)
-    throw new WeatherError("Network failure. Please check your connection.", 500);
+  } catch (error: any) {
+    throw new Error(error.message || "Network failure. Please check your connection.");
   }
 }
