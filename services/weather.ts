@@ -21,9 +21,9 @@ export async function getWeatherByCity(city: string): Promise<WeatherData> {
 
     if (!response.ok) {
       if (response.status === 404) {
-        throw new WeatherError(`City "${city}" not found.`, 404);
+        throw new Error(`City "${city}" not found.`);
       }
-      throw new WeatherError("Failed to fetch weather data.", response.status);
+      throw new Error(`Failed to fetch weather data. Status: ${response.status}`);
     }
 
     const data: OpenWeatherResponse = await response.json();
