@@ -25,7 +25,13 @@ export function useWeather(city: string | undefined) {
       try {
         const result = await getWeatherByCity(city as string);
         if (isMounted) {
-          setData(result);
+          if (result.error) {
+            setError(result.error);
+            setData(null);
+          } else if (result.data) {
+            setData(result.data);
+            setError(null);
+          }
         }
       } catch (err: any) {
         if (isMounted) {
