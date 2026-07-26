@@ -1,36 +1,65 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ⛅ WeatherSphere
 
-## Getting Started
+Welcome to **WeatherSphere**, a stunning, production-ready weather application built with modern web technologies. WeatherSphere allows you to search for any city in the world and instantly receive real-time, beautifully formatted weather data including temperature, humidity, wind speed, visibility, and more!
 
-First, run the development server:
+## ✨ Features
+- **Real-Time Data**: Live weather information powered by the [OpenWeatherMap API](https://openweathermap.org/).
+- **Dynamic Interpretations**: Automatically interprets condition codes (e.g., determining if it's currently raining) and provides visual indicators.
+- **Glassmorphic Design**: A premium, frosted-glass UI built entirely with TailwindCSS.
+- **Micro-Animations**: Smooth hover effects, transitions, and loading skeletons for a seamless user experience.
+- **Responsive**: Mobile-first design that looks breathtaking on phones, tablets, and desktop monitors.
+- **Robust Error Handling**: Gracefully handles network failures, unresolved cities, and unauthorized API keys without breaking the application.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🛠️ Tech Stack
+- **Framework**: Next.js 14+ (App Router, Server Actions)
+- **Language**: TypeScript
+- **Styling**: TailwindCSS v4
+- **Icons**: Lucide React
+- **Deployment**: Vercel
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Getting Started
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Prerequisites
+Make sure you have [Node.js](https://nodejs.org/) installed on your machine and an active API key from [OpenWeatherMap](https://openweathermap.org/api).
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Installation
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/riteshbonthalakoti/weathersphere.git
+   cd weathersphere
+   ```
 
-## Learn More
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+3. Set up environment variables:
+   Create a `.env.local` file in the root directory and add your OpenWeather API key:
+   ```env
+   OPENWEATHER_API_KEY=your_actual_api_key_here
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+4. Run the development server:
+   ```bash
+   npm run dev
+   ```
+   Open [http://localhost:3000](http://localhost:3000) in your browser to see the application!
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📦 Architecture
+The project strictly follows Clean Architecture principles:
+- `app/`: Next.js App Router endpoints and core layout boundaries.
+- `components/`: Modular, reusable UI components (e.g., `SearchBar`, `WeatherCard`, `WeatherDetails`).
+- `hooks/`: Custom client-side React hooks (`useWeather.ts`).
+- `services/`: Server-side API fetching and business logic (`weather.ts`).
+- `types/`: Strict TypeScript interfaces for data models.
+- `lib/`: Utility functions and helper scripts.
 
-## Deploy on Vercel
+## 🌐 Deployment
+This project is officially deployed on **Vercel** with continuous integration enabled. 
+Live URL: [https://weathersphere-eta.vercel.app](https://weathersphere-eta.vercel.app)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+*Note: Ensure your `OPENWEATHER_API_KEY` is added to your Vercel project's Environment Variables dashboard.*
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+*Developed with modern web guidelines focusing on aesthetics, performance, and accessibility.*
