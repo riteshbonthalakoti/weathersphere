@@ -1,4 +1,4 @@
-export default function CurrentWeatherSkeleton() {
+export default function Loading() {
   return (
     <div className="w-full max-w-4xl mx-auto flex flex-col gap-6 animate-pulse" aria-hidden="true">
       {/* Main Card Skeleton */}

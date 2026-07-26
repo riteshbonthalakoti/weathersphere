@@ -1,3 +1,5 @@
+"use server";
+
 import { OpenWeatherResponse, WeatherData } from "@/types/weather";
 
 const API_KEY = process.env.OPENWEATHER_API_KEY;
